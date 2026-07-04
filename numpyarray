@@ -1,0 +1,167 @@
+1. Creating Arrays Using Lists
+import numpy as np
+
+arr1 = np.array([1,2,3,4,5])
+print("1D array:", arr1)
+
+arr2 = np.array([[1,2,3],[4,5,6]])
+print("2D array:", arr2)
+Output
+1D array: [1 2 3 4 5]
+
+2D array:
+[[1 2 3]
+ [4 5 6]]
+Explanation
+np.array()
+
+Converts a Python list into a NumPy array.
+
+1D Array
+arr1 = np.array([1,2,3,4,5])
+Single list
+One dimension
+Shape = (5,)
+
+Visualization:
+
+[1 2 3 4 5]
+2D Array
+arr2 = np.array([[1,2,3],
+                 [4,5,6]])
+
+List inside another list → rows and columns.
+
+Visualization
+
+1 2 3
+4 5 6
+
+Shape = (2,3)
+
+Meaning:
+
+2 rows
+3 columns
+2. Vector, Matrix and Tensor
+vc = np.array([1,2,3,4])
+print("1D array:", vc)
+
+mat = np.array([[1,2,3,4],
+                [4,3,2,1]])
+print("2D matrix:", mat)
+
+ten = np.array([
+    [[1,2],[3,4]],
+    [[4,3],[2,1]]
+])
+
+print("3D tensor:", ten)
+Vector (1D Array)
+vc = np.array([1,2,3,4])
+
+Output
+
+[1 2 3 4]
+
+Shape
+
+(4,)
+Matrix (2D Array)
+mat = np.array([[1,2,3,4],
+                [4,3,2,1]])
+
+Output
+
+[[1 2 3 4]
+ [4 3 2 1]]
+
+Shape
+
+(2,4)
+
+Meaning
+
+2 rows
+4 columns
+Tensor (3D Array)
+ten = np.array([
+    [[1,2],[3,4]],
+    [[4,3],[2,1]]
+])
+
+Output
+
+[[[1 2]
+  [3 4]]
+
+ [[4 3]
+  [2 1]]]
+
+Shape
+
+(2,2,2)
+
+Meaning
+
+2 matrices
+
+Matrix 1
+1 2
+3 4
+
+Matrix 2
+4 3
+2 1
+
+A tensor is simply an array with 3 or more dimensions.
+
+Difference Between List and NumPy Array
+Python List	NumPy Array
+Slower	Faster
+Can store different data types	Usually stores same data type
+More memory	Less memory
+Limited mathematical operations	Supports vectorized operations
+
+Example
+
+import numpy as np
+
+l = [1,2,3]
+
+a = np.array([1,2,3])
+
+print(l * 2)
+
+Output
+
+[1,2,3,1,2,3]
+
+But
+
+print(a * 2)
+
+Output
+
+[2 4 6]
+
+NumPy performs element-wise multiplication.
+
+Shapes of the Arrays
+import numpy as np
+
+arr1 = np.array([1,2,3,4,5])
+print(arr1.shape)
+# (5,)
+
+arr2 = np.array([[1,2,3],[4,5,6]])
+print(arr2.shape)
+# (2,3)
+
+ten = np.array([
+    [[1,2],[3,4]],
+    [[4,3],[2,1]]
+])
+
+print(ten.shape)
+# (2,2,2)
