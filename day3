@@ -1,0 +1,163 @@
+In NumPy, indexing is done using the syntax:
+
+array[rows, columns]
+
+Let's understand the indexing used in your code:
+
+sales_data[:, 1:]
+General Syntax
+array[row_index, column_index]
+The part before the comma selects rows.
+The part after the comma selects columns.
+Meaning of :
+
+A colon (:) means select everything along that dimension.
+
+sales_data[:, :]
+: (rows) → all rows
+: (columns) → all columns
+
+This selects the entire array.
+
+Meaning of 1:
+
+1: means start from index 1 and go till the last index.
+
+Remember that Python indexing starts from 0.
+
+Example:
+
+arr = [10, 20, 30, 40]
+Index	Value
+0	10
+1	20
+2	30
+3	40
+arr[1:]
+
+Output:
+
+[20, 30, 40]
+Putting it together
+
+Suppose
+
+sales_data = np.array([
+    [101, 200, 300, 400],
+    [102, 250, 350, 450],
+    [103, 150, 250, 350]
+])
+
+It looks like
+
+Row	Col0	Col1	Col2	Col3
+0	101	200	300	400
+1	102	250	350	450
+2	103	150	250	350
+
+Now,
+
+sales_data[:, 1:]
+
+means
+
+: → take all rows
+1: → take columns from index 1 onward
+
+So the result is
+
+[
+ [200, 300, 400],
+ [250, 350, 450],
+ [150, 250, 350]
+]
+
+The first column (101, 102, 103) is skipped.
+
+More indexing examples
+First row
+sales_data[0]
+
+Output
+
+[101, 200, 300, 400]
+Second row
+sales_data[1]
+
+Output
+
+[102, 250, 350, 450]
+First column
+sales_data[:, 0]
+
+Output
+
+[101, 102, 103]
+
+Explanation:
+
+: → all rows
+0 → first column
+Second column
+sales_data[:, 1]
+
+Output
+
+[200, 250, 150]
+First two columns
+sales_data[:, :2]
+
+Output
+
+[
+ [101, 200],
+ [102, 250],
+ [103, 150]
+]
+
+Explanation:
+
+:2 means from index 0 up to (but not including) index 2.
+Last two columns
+sales_data[:, 2:]
+
+Output
+
+[
+ [300, 400],
+ [350, 450],
+ [250, 350]
+]
+Select rows 1 and 2
+sales_data[1:, :]
+
+Output
+
+[
+ [102, 250, 350, 450],
+ [103, 150, 250, 350]
+]
+Select one element
+sales_data[2, 3]
+
+Output
+
+350
+
+Explanation:
+
+Row index = 2 (third row)
+Column index = 3 (fourth column)
+Quick summary
+Indexing	Meaning
+:	Select all
+1:	From index 1 to the end
+:3	From index 0 to 2
+1:3	Index 1 and 2 only
+[:, 1:]	All rows, columns from index 1 onward
+[1:, :]	Rows from index 1 onward, all columns
+[:, 0]	First column
+[0, :]	First row
+[2, 3]	Element at row 2, column 3
+
+The key thing to remember is that NumPy uses array[rows, columns], and slices follow Python's rule that the start index is included, but the end index is excluded.
