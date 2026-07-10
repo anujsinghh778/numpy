@@ -1,0 +1,42 @@
+Why doesn't this happen in a normal Python script?
+
+If you save this as test.py:
+
+import pandas as pd
+
+s = pd.Series([10,20,30])
+
+s
+
+and run it:
+
+python test.py
+
+Output:
+
+(nothing)
+
+because normal Python scripts do not automatically display the last expression.
+
+You would need:
+
+print(s)
+Why is dtype: object?
+
+Your Series contains both integers and a string:
+
+[10, 20, 30, 40, 50, 'abd']
+
+Since all elements in a Pandas Series must have a single data type, Pandas chooses the common type that can hold both numbers and strings:
+
+object
+
+If all values were integers:
+
+s = pd.Series([10,20,30,40,50])
+
+then the output would end with:
+
+dtype: int64
+
+So the automatic display comes from the notebook environment, not from Pandas itself.
